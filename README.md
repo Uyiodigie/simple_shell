@@ -1,5 +1,7 @@
 0x16.C - Simple Shell
+
 1)Writing a program UNIX command line interpreter.
+
 2)Simple shell 0.1 +
 
 Handle command lines with arguments
