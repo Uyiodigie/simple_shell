@@ -32,7 +32,7 @@ extern char **environ;
  */
 typedef struct data
 {
-	char **av;
+	char **argv;
 	char *input;
 	char **args;
 	int status;
