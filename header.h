@@ -22,7 +22,7 @@ extern char **environ;
 
 /**
  * struct data - struct that contains all relevant data on runtime
- * @av: argument vector
+ * @argv: argument vector
  * @input: command line written by the user
  * @args: tokens of the command line
  * @status: last status of the shell
@@ -39,7 +39,7 @@ typedef struct data
 	int counter;
 	char **_environ;
 	char *pid;
-} datastruct;
+} data_shell;
 
 /**
  * struct sep_list_s - single linked list
@@ -229,5 +229,4 @@ void aux_help_cd(void);
 
 /* get_help.c */
 int get_help(data_shell *datash);
-
 #endif
