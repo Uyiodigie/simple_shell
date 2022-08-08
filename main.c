@@ -21,20 +21,19 @@ void free_dat(data_shell *datastruct)
  * Return: void
  */
 void set_dat(data_shell *datastruct, char **argv)
-	{
-		unsigned int i;
+{
+	unsigned int i;
 
-		datastruct->argv = argv;
-		datastruct->input = NULL;
-		datastruct->args = NULL;
-		datastruct->status = 0;
-		datastruct->counter = 1;
+	datastruct->argv = argv;
+	datastruct->input = NULL;
+	datastruct->args = NULL;
+	datastruct->status = 0;
+	datastruct->counter = 1;
 
-		for (i = 0; environ[i]; i++)
-			;
-		datastruct->_environ = malloc(sizeof(char *) * (i + 1));
-		for (i = 0; environ[i] = _strdup(environ[i]);
-
+	for (i = 0; environ[i]; i++)
+		;
+	datastruct->_environ = malloc(sizeof(char *) * (i + 1));
+	for (i
 /**
  * main - the main function for the simple shell
  * Description: The program is a custom made UNIX shell.
