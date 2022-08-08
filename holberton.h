@@ -30,7 +30,7 @@ extern char **environ;
  * @_environ: environment variable
  * @pid: process ID of the shell
  */
-typedef struct data
+typedef struct data_shell
 {
 	char **av;
 	char *input;
