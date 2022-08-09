@@ -25,7 +25,7 @@ void set_dat(data_shell *datastruct, char **argv)
 {
 	unsigned int i;
 
-	datastruct->argv = argv;
+	datastruct->args = argv;
 	datastruct->input = NULL;
 	datastruct->args = NULL;
 	datastruct->status = 0;
