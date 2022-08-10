@@ -1,63 +1,73 @@
 #include "holberton.h"
 
 /**
- * free_dat - frees the data structure
- * @datastruct: data structure
- * Return: void
+ * free_data - frees data structure
+ *
+ * @datash: data structure
+ * Return: no return
  */
-void free_dat(data_shell *datastruct)
+void free_data(data_shell *datash)
 {
 	unsigned int i;
 
-	for (i = 1; datastruct->_environ[i]; i++)
-		free(datastruct->_environ[i]);
-	free(datastruct->_environ);
-	free(datastruct->pid);
+	for (i = 0; datash->_environ[i]; i++)
+	{
+		free(datash->_environ[i]);
+	}
+
+	free(datash->_environ);
+	free(datash->pid);
 }
 
 /**
- * set_dat - initialize data structure
- * @datastruct: data structure
- * @argv: argument vector
- * Return: void
+ * set_data - Initialize data structure
+ *
+ * @datash: data structure
+ * @av: argument vector
+ * Return: no return
  */
-void set_dat(data_shell *datastruct, char **argv)
+void set_data(data_shell *datash, char **av)
 {
 	unsigned int i;
 
-	datastruct->argv = argv;
-	datastruct->input = NULL;
-	datastruct->args = NULL;
-	datastruct->status = 0;
-	datastruct->counter = 1;
+	datash->av = av;
+	datash->input = NULL;
+	datash->args = NULL;
+	datash->status = 0;
+	datash->counter = 1;
 
 	for (i = 0; environ[i]; i++)
 		;
-	datastruct->_environ = malloc(sizeof(char *) * (i + 1));
+
+	datash->_environ = malloc(sizeof(char *) * (i + 1));
+
 	for (i = 0; environ[i]; i++)
-		datastruct->_environ[i] = _strdup(environ[i]);
-	datastruct->_environ[i] = NULL;
-	datastruct->pid = aux_itoa(getpid());
+	{
+		datash->_environ[i] = _strdup(environ[i]);
+	}
+
+	datash->_environ[i] = NULL;
+	datash->pid = aux_itoa(getpid());
 }
 
 /**
- * main - the main function for the simple shelli
- * @argc: argument count
- * @argv: argument vector
- * Description: The program is a custom made UNIX shell.
- * It was created to immitate most of its basic features and functions.
- * Return: 0 if success
+ * main - Entry point
+ *
+ * @ac: argument count
+ * @av: argument vector
+ *
+ * Return: 0 on success.
  */
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	data_shell datastruct;
-	(void)argc;
+	data_shell datash;
+	(void) ac;
 
 	signal(SIGINT, get_sigint);
-	set_dat(&datastruct, argv);
-	shell_loop(&datastruct);
-	free_dat(&datastruct);
-	if (datastruct.status < 0)
+	set_data(&datash, av);
+	shell_loop(&datash);
+	free_data(&datash);
+	if (datash.status < 0)
 		return (255);
-	return (datastruct.status);
+	return (datash.status);
 }
