@@ -30,11 +30,19 @@ void set_data(data_shell *datash, char **av)
 {
 	unsigned int i;
 
+<<<<<<< HEAD
 	datash->av = av;
 	datash->input = NULL;
 	datash->args = NULL;
 	datash->status = 0;
 	datash->counter = 1;
+=======
+	datastruct->args = argv;
+	datastruct->input = NULL;
+	datastruct->args = NULL;
+	datastruct->status = 0;
+	datastruct->counter = 1;
+>>>>>>> 7081162c7c06171e04c6cf9eeb80ad076dd0b113
 
 	for (i = 0; environ[i]; i++)
 		;
